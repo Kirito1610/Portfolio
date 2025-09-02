@@ -21,19 +21,16 @@ const HeroSection = () => {
             </span>
             <br></br>
             <TypeAnimation
-              sequence={[
-                "Vishal Kundu",
-                1000,
-                "Software Engineer ",
-                1000,
-              ]}
+              sequence={["Vishal Kundu", 1000, "Software Engineer ", 1000]}
               wrapper="span"
               speed={30}
               repeat={Infinity}
             />
           </h1>
-          <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            Passionate about building scalable web applications and delivering engaging user experiences. I love turning complex problems into simple, beautiful, and intuitive designs.
+          <p className="text-[#ADB7BE] text-base sm:text-lg lg:pr-20 mb-6 lg:text-xl">
+            With 2 years’ experience in Next.js, React, TypeScript, and
+            Tailwind, I build scalable web apps and create intuitive user
+            experiences.
           </p>
           <div>
             <Link
@@ -58,11 +55,11 @@ const HeroSection = () => {
           transition={{ duration: 0.5 }}
           className="col-span-4 place-self-center mt-4 lg:mt-0"
         >
-          <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative">
+          <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px] relative">
             <Image
               src="https://img.freepik.com/free-vector/programming-concept-illustration_114360-1325.jpg?t=st=1749494745~exp=1749498345~hmac=27edc1392b56e7e4868acd695527d0b55125edc6c88cbe1a1d2123c27ac50621&w=1380"
               alt="hero image"
-              className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+              className="absolute rounded-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               width={300}
               height={300}
             />

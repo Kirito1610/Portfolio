@@ -5,53 +5,65 @@ import ProjectTag from "./ProjectTag";
 import { motion, useInView } from "framer-motion";
 
 const projectsData = [
-  
   {
     id: 3,
-    title: "E-commerce Application",
-    description: "Project 3 description",
-    image: "/images/projects/3.png",
+    title: "GenZee Therapist Website",
+    description:
+      "A freelance project featuring a 4-page responsive website with smooth navigation and animations.",
+    image: "/genzee.png",
     tag: ["All", "Web"],
-    gitUrl: "https://github.com/sadique0101/e-comm",
-    previewUrl: "https://e-comm-blue.vercel.app/",
+    gitUrl: "https://github.com/Kirito1610/GenZee-website",
+    previewUrl: "https://genzee-therapist.com/",
   },
   {
     id: 4,
-    title: "Food Ordering Application",
-    description: "Project 4 description",
-    image: "/images/projects/4.png",
-    tag: ["All", "Mobile"],
+    title: "Interactive Dashboard",
+    description:
+      "Built with Highcharts and animations, integrated with real-time data for dynamic visualization.",
+    image: "/dashboard.png",
+    tag: ["All", "Web"],
     gitUrl: "/",
-    previewUrl: "/",
+    previewUrl: "https://dashboard-mu-gray.vercel.app/",
   },
   {
     id: 5,
-    title: "React Firebase Template",
-    description: "Authentication and CRUD operations",
-    image: "/images/projects/5.png",
+    title: "Todo Web App",
+    description:
+      "A frontend application with features like task creation, editing, deleting, searching, filtering, and sorting.",
+    image: "/todo.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl: "https://github.com/Kirito1610/Todo-App",
+    previewUrl: "https://todo-pink-ten.vercel.app/",
   },
   {
     id: 6,
-    title: "Full-stack Roadmap",
-    description: "Project 5 description",
-    image: "/images/projects/6.png",
+    title: "Blog Website",
+    description:
+      "A 3-page blog application including a listing page, detailed blog page, and a contact form.",
+    image: "/blog.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl: "https://github.com/Kirito1610/BlogPage",
+    previewUrl: "https://blog-page-kappa.vercel.app/blog",
   },
   {
-  id: 7,
-  title: "Live Chat Web App",
-  description: "Real-time messaging app using WebSockets with user authentication and chat rooms.",
-  image: "/liveChat.png",
-  tag: ["All", "Web"],
-  gitUrl: "https://github.com/yourusername/live-chat-app",
-  previewUrl: "https://livechat.yourdomain.com",
-}
-
+    id: 7,
+    title: "Live Chat App",
+    description:
+      "A real-time chat application built with Stream Chat SDK, featuring user authentication (login/signup), chat rooms, and database integration.",
+    image: "/liveChat.png",
+    tag: ["All", "Web"],
+    gitUrl: "https://github.com/yourusername/live-chat-app",
+    previewUrl: "https://message-friend.vercel.app/",
+  },
+  {
+    id: 8,
+    title: "Survey Page",
+    description:
+      "An interactive employee engagement survey page with a clean and user-friendly interface.",
+    image: "/surey.png",
+    tag: ["All", "Web"],
+    previewUrl: "https://www.kenresearch.com/employee-engagement-survey",
+  },
 ];
 
 const ProjectsSection = () => {
@@ -64,7 +76,7 @@ const ProjectsSection = () => {
   };
 
   const filteredProjects = projectsData.filter((project) =>
-    project.tag.includes(tag)
+    project.tag.includes(tag),
   );
 
   const cardVariants = {
