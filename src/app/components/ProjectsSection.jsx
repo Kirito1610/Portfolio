@@ -6,6 +6,15 @@ import { motion, useInView } from "framer-motion";
 
 const projectsData = [
   {
+    id: 1,
+    title: "E-commerce Application",
+    description:
+      "Full-stack storefront built with Next.js and a Node.js backend, featuring product search, shopping cart, payments, and order tracking with dynamic routing.",
+    image: '/ecommerce.png',
+    tag: ["All", "Web"],
+    previewUrl: "https://e-comm-blue.vercel.app/",
+  },
+  {
     id: 3,
     title: "GenZee Therapist Website",
     description:
@@ -49,10 +58,10 @@ const projectsData = [
     id: 7,
     title: "Live Chat App",
     description:
-      "A real-time chat application built with Stream Chat SDK, featuring user authentication (login/signup), chat rooms, and database integration.",
+      "A real-time chat app with authenticated login, messaging, emojis, unread badges, and avatars, plus responsive, editable group chats for team collaboration.",
     image: "/liveChat.png",
     tag: ["All", "Web"],
-    gitUrl: "https://github.com/yourusername/live-chat-app",
+    gitUrl: "https://github.com/Kirito1610/live-chat-app",
     previewUrl: "https://message-friend.vercel.app/",
   },
   {
@@ -85,7 +94,7 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects">
+    <section id="projects" className="scroll-mt-24">
       <h2 className="text-center text-4xl font-bold text-slate-900 mt-4 mb-8 md:mb-12">
         My Projects
       </h2>

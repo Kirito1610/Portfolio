@@ -1,14 +1,25 @@
 import React from "react";
-import { CodeBracketIcon, EyeIcon } from "@heroicons/react/24/outline";
+import {
+  CodeBracketIcon,
+  EyeIcon,
+  RocketLaunchIcon,
+} from "@heroicons/react/24/outline";
 import Link from "next/link";
 
 const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
   return (
     <div className="rounded-xl overflow-hidden bg-white ring-1 ring-slate-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
       <div
-        className="h-52 md:h-72 relative group"
-        style={{ background: `url(${imgUrl})`, backgroundSize: "cover" }}
+        className={`h-52 md:h-72 relative group ${
+          !imgUrl
+            ? "bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center"
+            : ""
+        }`}
+        style={imgUrl ? { background: `url(${imgUrl})`, backgroundSize: "cover" } : undefined}
       >
+        {!imgUrl && (
+          <RocketLaunchIcon className="h-16 w-16 text-white/70" />
+        )}
         <div className="overlay items-center justify-center absolute top-0 left-0 w-full h-full bg-slate-900 bg-opacity-0 hidden group-hover:flex group-hover:bg-opacity-70 transition-all duration-500 ">
           {gitUrl && (
             <Link

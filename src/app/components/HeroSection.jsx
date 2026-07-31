@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -24,16 +23,18 @@ const HeroSection = () => {
             </span>
             <br></br>
             <TypeAnimation
-              sequence={["Vishal Kundu", 1000, "Software Engineer ", 1000]}
+              sequence={["Vishal Kundu", 1000, "Software Developer", 1000]}
               wrapper="span"
               speed={30}
               repeat={Infinity}
             />
           </h1>
           <p className="text-slate-600 text-base sm:text-lg lg:pr-20 mb-6 lg:text-xl">
-            With 2 years’ experience in Next.js, React, TypeScript, and
-            Tailwind, I build scalable web apps and create intuitive user
-            experiences.
+            With 3+ years&apos; experience building production web apps at{" "}
+            <span className="font-semibold text-slate-800">Ken Research</span>,
+            I specialize in Next.js, React, TypeScript, and Django, and I love
+            pairing modern frontend craft with AI-powered features that make
+            products feel smarter.
           </p>
           <div>
             <Link
@@ -54,16 +55,48 @@ const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="col-span-4 place-self-center mt-4 lg:mt-0"
+          className="col-span-4 place-self-center mt-8 sm:mt-0"
         >
-          <div className="rounded-full bg-gradient-to-br from-primary-100 to-secondary-100 ring-1 ring-slate-200 shadow-xl w-[250px] h-[250px] lg:w-[350px] lg:h-[350px] relative">
-            <Image
-              src="https://img.freepik.com/free-vector/programming-concept-illustration_114360-1325.jpg?t=st=1749494745~exp=1749498345~hmac=27edc1392b56e7e4868acd695527d0b55125edc6c88cbe1a1d2123c27ac50621&w=1380"
-              alt="hero image"
-              className="absolute rounded-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-              width={300}
-              height={300}
-            />
+          <div className="relative w-[260px] h-[260px] lg:w-[340px] lg:h-[340px]">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary-200 to-secondary-200 blur-2xl opacity-60" />
+            <motion.div
+              animate={{ y: [0, -12, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="relative w-full h-full rounded-2xl bg-slate-900 ring-1 ring-slate-800 shadow-2xl overflow-hidden flex flex-col"
+            >
+              <div className="flex items-center gap-1.5 px-4 py-3 bg-slate-800/80 border-b border-slate-700">
+                <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
+                <span className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
+                <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
+                <span className="ml-3 text-[10px] text-slate-400 font-mono">
+                  vishal-kundu.dev
+                </span>
+              </div>
+              <div className="flex-1 p-4 font-mono text-[11px] leading-relaxed space-y-1.5">
+                <p>
+                  <span className="text-primary-400">const</span>{" "}
+                  <span className="text-secondary-300">developer</span> = {"{"}
+                </p>
+                <p className="pl-4 text-slate-300">
+                  name: <span className="text-green-300">&apos;Vishal Kundu&apos;</span>,
+                </p>
+                <p className="pl-4 text-slate-300">
+                  role: <span className="text-green-300">&apos;Senior Software Developer&apos;</span>,
+                </p>
+                <p className="pl-4 text-slate-300">
+                  stack: [<span className="text-green-300">&apos;Next.js&apos;</span>,{" "}
+                  <span className="text-green-300">&apos;React&apos;</span>,{" "}
+                  <span className="text-green-300">&apos;Django&apos;</span>],
+                </p>
+                <p className="pl-4 text-slate-300">
+                  loves: <span className="text-green-300">&apos;clean UI + AI&apos;</span>,
+                </p>
+                <p>{"}"}</p>
+                <p className="pt-2 text-primary-400">
+                  <span className="animate-pulse">▍</span>
+                </p>
+              </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>
