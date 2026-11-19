@@ -1,140 +1,115 @@
-"use client";
-import React, { useState, useRef } from "react";
 import ProjectCard from "./ProjectCard";
-import ProjectTag from "./ProjectTag";
-import { motion, useInView } from "framer-motion";
 
 const projectsData = [
+  {
+    id: 8,
+    title: "Employee Survey Page",
+    description:
+      "Interactive engagement survey page deployed to production at Ken Research, with a clean, accessible UI.",
+    image: "/surey.png",
+    previewUrl: "https://www.kenresearch.com/employee-engagement-survey",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    id: 9,
+    title: "Media vault",
+    description:
+      "A vault between friends, completed secured with encyrepted media. Share media with just your closest friends.",
+    image: "/media-valut.png",
+    previewUrl: "https://my-gallery-three-pi.vercel.app/login",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS","PostgreSQL","Cloudinary","Node.js","Express " ],
+  },
   {
     id: 1,
     title: "E-commerce Application",
     description:
-      "Full-stack storefront built with Next.js and a Node.js backend, featuring product search, shopping cart, payments, and order tracking with dynamic routing.",
-    image: '/ecommerce.png',
-    tag: ["All", "Web"],
+      "Full-stack storefront built with Next.js and a Node.js backend, featuring product search, shopping cart, Stripe payments, and order tracking.",
+    image: "/ecommerce.png",
     previewUrl: "https://e-comm-blue.vercel.app/",
+    tags: ["Next.js", "Node.js", "Stripe", "MongoDB"],
   },
   {
     id: 3,
     title: "GenZee Therapist Website",
     description:
-      "A freelance project featuring a 4-page responsive website with smooth navigation and animations.",
+      "Freelance project — 4-page responsive website with smooth scroll animations and optimized performance.",
     image: "/genzee.png",
-    tag: ["All", "Web"],
-    gitUrl: "https://github.com/Kirito1610/GenZee-website",
-    previewUrl: "https://genzee-therapist.com/",
+    previewUrl: "https://genzee.vercel.app/",
+    tags: ["React", "CSS3", "Responsive Design"],
   },
   {
     id: 4,
     title: "Interactive Dashboard",
     description:
-      "Built with Highcharts and animations, integrated with real-time data for dynamic visualization.",
+      "Data visualization dashboard built with Highcharts, featuring animated charts and real-time data integration.",
     image: "/dashboard.png",
-    tag: ["All", "Web"],
     gitUrl: "/",
     previewUrl: "https://dashboard-mu-gray.vercel.app/",
+    tags: ["React", "Highcharts", "Data Viz"],
   },
   {
     id: 5,
     title: "Todo Web App",
     description:
-      "A frontend application with features like task creation, editing, deleting, searching, filtering, and sorting.",
+      "Feature-rich task manager with creation, editing, deletion, search, filtering, and sorting capabilities.",
     image: "/todo.png",
-    tag: ["All", "Web"],
     gitUrl: "https://github.com/Kirito1610/Todo-App",
     previewUrl: "https://todo-pink-ten.vercel.app/",
+    tags: ["React", "JavaScript", "Tailwind CSS"],
   },
   {
     id: 6,
     title: "Blog Website",
     description:
-      "A 3-page blog application including a listing page, detailed blog page, and a contact form.",
+      "3-page blog with a listing page, full article view, and a contact form — built with clean typography.",
     image: "/blog.png",
-    tag: ["All", "Web"],
     gitUrl: "https://github.com/Kirito1610/BlogPage",
     previewUrl: "https://blog-page-kappa.vercel.app/blog",
+    tags: ["Next.js", "TypeScript"],
   },
   {
     id: 7,
     title: "Live Chat App",
     description:
-      "A real-time chat app with authenticated login, messaging, emojis, unread badges, and avatars, plus responsive, editable group chats for team collaboration.",
+      "Real-time chat with authenticated login, messaging, emoji reactions, unread badges, and responsive group chats.",
     image: "/liveChat.png",
-    tag: ["All", "Web"],
-    gitUrl: "https://github.com/Kirito1610/live-chat-app",
     previewUrl: "https://message-friend.vercel.app/",
-  },
-  {
-    id: 8,
-    title: "Survey Page",
-    description:
-      "An interactive employee engagement survey page with a clean and user-friendly interface.",
-    image: "/surey.png",
-    tag: ["All", "Web"],
-    previewUrl: "https://www.kenresearch.com/employee-engagement-survey",
-  },
+    tags: ["React", "Socket.io", "Node.js", "Auth"],
+  }
 ];
 
 const ProjectsSection = () => {
-  const [tag, setTag] = useState("All");
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
-  const handleTagChange = (newTag) => {
-    setTag(newTag);
-  };
-
-  const filteredProjects = projectsData.filter((project) =>
-    project.tag.includes(tag),
-  );
-
-  const cardVariants = {
-    initial: { y: 50, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
-  };
-
   return (
     <section id="projects" className="scroll-mt-24">
-      <h2 className="text-center text-4xl font-bold text-slate-900 mt-4 mb-8 md:mb-12">
-        My Projects
-      </h2>
-      {/* <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
-        <ProjectTag
-          onClick={handleTagChange}
-          name="All"
-          isSelected={tag === "All"}
-        />
-        <ProjectTag
-          onClick={handleTagChange}
-          name="Web"
-          isSelected={tag === "Web"}
-        />
-        <ProjectTag
-          onClick={handleTagChange}
-          name="Mobile"
-          isSelected={tag === "Mobile"}
-        />
-      </div> */}
-      <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
-        {filteredProjects.map((project, index) => (
-          <motion.li
-            key={index}
-            variants={cardVariants}
-            initial="initial"
-            animate={isInView ? "animate" : "initial"}
-            transition={{ duration: 0.3, delay: index * 0.4 }}
-          >
-            <ProjectCard
+      <div className="section-divider my-4" />
+
+      <div className="py-12 sm:py-16">
+        <div className="text-center mb-12">
+          <p className="uppercase tracking-widest text-xs font-semibold text-primary-500 mb-2">
+            What I&apos;ve built
+          </p>
+          <h2 className="text-4xl font-bold text-slate-900">Projects</h2>
+        </div>
+
+        <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projectsData.map((project, index) => (
+            <li
               key={project.id}
-              title={project.title}
-              description={project.description}
-              imgUrl={project.image}
-              gitUrl={project.gitUrl}
-              previewUrl={project.previewUrl}
-            />
-          </motion.li>
-        ))}
-      </ul>
+              className="animate-fade-in-up flex"
+              style={{ animationDelay: `${index * 60}ms` }}
+            >
+              <ProjectCard
+                title={project.title}
+                description={project.description}
+                imgUrl={project.image}
+                gitUrl={project.gitUrl}
+                previewUrl={project.previewUrl}
+                tags={project.tags}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 };

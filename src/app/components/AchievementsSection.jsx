@@ -1,68 +1,64 @@
-"use client";
-import React from "react";
-import dynamic from "next/dynamic";
-
-const AnimatedNumbers = dynamic(
-  () => {
-    return import("react-animated-numbers");
-  },
-  { ssr: false },
-);
+import {
+  ClockIcon,
+  DocumentTextIcon,
+  ChartBarIcon,
+  BoltIcon,
+} from "@heroicons/react/24/outline";
 
 const achievementsList = [
   {
     metric: "Years Experience",
     value: "3",
     postfix: "+",
+    icon: ClockIcon,
+    description: "in production web development",
   },
   {
     metric: "Pages Shipped",
     value: "80",
     postfix: "+",
+    icon: DocumentTextIcon,
+    description: "responsive, SEO-ready pages",
   },
   {
     metric: "Product Pages",
-    value: "10000",
+    value: "10,000",
     postfix: "+",
+    icon: ChartBarIcon,
+    description: "with live data dashboards",
   },
   {
-    metric: "Faster with AI Tools",
+    metric: "Faster with AI",
     value: "60",
     postfix: "%",
+    icon: BoltIcon,
+    description: "implementation speed gain",
   },
 ];
 
 const AchievementsSection = () => {
   return (
-    <div className="py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-      <div className="sm:ring-1 sm:ring-slate-200 bg-white shadow-sm rounded-2xl py-8 px-16 flex flex-col sm:flex-row items-center justify-between">
-        {achievementsList.map((achievement, index) => {
-          return (
+    <div className="py-6 sm:py-10">
+      <div className="bg-white ring-1 ring-slate-200 shadow-sm rounded-2xl px-6 py-8 sm:px-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 md:divide-x md:divide-slate-100">
+          {achievementsList.map(({ metric, value, postfix, icon: Icon, description }, index) => (
             <div
               key={index}
-              className="flex flex-col items-center justify-center mx-4 my-4 sm:my-0"
+              className="animate-scale-in flex flex-col items-center text-center px-4"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              <h2 className="text-slate-900 text-4xl font-bold flex flex-row">
-                {achievement.prefix}
-                <AnimatedNumbers
-                  includeComma
-                  animateToNumber={parseInt(achievement.value)}
-                  locale="en-US"
-                  className="text-slate-900 text-4xl font-bold"
-                  configs={(_, index) => {
-                    return {
-                      mass: 1,
-                      friction: 100,
-                      tensions: 140 * (index + 1),
-                    };
-                  }}
-                />
-                {achievement.postfix}
-              </h2>
-              <p className="text-slate-500 text-base">{achievement.metric}</p>
+              <div className="mb-3 h-10 w-10 rounded-xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center shadow-sm">
+                <Icon className="h-5 w-5 text-white" />
+              </div>
+              <p className="gradient-text text-4xl font-extrabold leading-none">
+                {value}
+                <span>{postfix}</span>
+              </p>
+              <p className="mt-1.5 text-sm font-semibold text-slate-700">{metric}</p>
+              <p className="mt-0.5 text-xs text-slate-400">{description}</p>
             </div>
-          );
-        })}
+          ))}
+        </div>
       </div>
     </div>
   );
